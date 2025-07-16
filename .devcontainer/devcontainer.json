@@ -1,0 +1,28 @@
+{
+    "name": "Qt Zig Conan Devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    // VS Code extensions for C++, CMake, Conan
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "twxs.cmake",
+                "disroop.conan"
+            ]
+        }
+    },
+    // Features (optional: add Git, etc.)
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "runArgs": [
+        "--net", "host",
+        "--env=DISPLAY=${localEnv:DISPLAY}",
+        "--env=WAYLAND_DISPLAY=${localEnv:WAYLAND_DISPLAY}",
+        "--env=XDG_RUNTIME_DIR=${localEnv:XDG_RUNTIME_DIR}",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        "--volume=/mnt/wslg:/mnt/wslg"
+    ]
+}
